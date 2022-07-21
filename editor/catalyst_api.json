@@ -1,0 +1,63 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a catalyst app",
+    "version": "1.0.0",
+    "title": "Catalyst Experience App",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:2021",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/checkLogin/{userTokenID}": {
+      "get": {
+        "tags": [
+          "Catalyst Token"
+        ],
+        "summary": "Check valid token",
+        "description": "Returns a single pet",
+        "operationId": "getPetById",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userTokenID",
+            "in": "path",
+            "description": "User Token for login",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "201": {
+            "description": "Invalid ID supplied"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  }
+}
